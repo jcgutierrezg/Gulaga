@@ -5,52 +5,53 @@ from luma.core.render import canvas
 import time
 import random
 
-vidas = 3
+global vidas
 
-jugX = 4
-jugY = 0
-disparoJugSt = 0
-disparoJugX = 0
-disparoJugY = 0
+global jugX
+global jugY
+global disparoJugSt
+global disparoJugX
+global disparoJugY
 
-disparoEn1St = 0
-disparoEn1X = 0
-disparoEn1Y = 0
+global disparoEn1St
+global disparoEn1X
+global disparoEn1Y
 
-disparoEn2St = 0
-disparoEn2X = 0
-disparoEn2Y = 0
+global disparoEn2St
+global disparoEn2X
+global disparoEn2Y
 
-disparoEn3St = 0
-disparoEn3X = 0
-disparoEn3Y = 0
+global disparoEn3St
+global disparoEn3X
+global disparoEn3Y
 
-disparoEn4St = 0
-disparoEn4X = 0
-disparoEn4Y = 0
+global disparoEn4St
+global disparoEn4X
+global disparoEn4Y
 
-velBalasJug = 10
-velBalasEne = 20
-velRotaEne = 1000
+global velBalasJug
+global velBalasEne
+global velRotaEne
 
-posEnemigos = [0, 7, 1, 7, 2, 7, 3, 7, 4, 7, 5, 7, 6, 7, 7, 7]
-lose = [7, 0]
+global posEnemigos
+global lose
 
-enem1St = 1
-enem2St = 1
-enem3St = 1
-enem4St = 1
-enem5St = 1
-enem6St = 1
-enem7St = 1
-enem8St = 1
+global enem1St
+global enem2St
+global enem3St
+global enem4St
+global enem5St
+global enem6St
+global enem7St
+global enem8St
 
-cantEnemigos = 8
+global cantEnemigos
 
-disparosEnemigos = 0
+global disparosEnemigos
 
-timeCount = 0
-hitEneFlag = 0
+global timeCount
+global hitEneFlag
+global start
 
 
 def init():
@@ -298,6 +299,7 @@ def display():
 
 def main():
     matrix = Matrix()
+    start = 0
     init()
     while vidas>0:
         movJugador()
