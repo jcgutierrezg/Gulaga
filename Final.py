@@ -52,6 +52,59 @@ disparosEnemigos = 0
 timeCount = 0
 hitEneFlag = 0
 
+
+def init():
+    if(start == 0):
+        vidas = 3
+
+        jugX = 4
+        jugY = 0
+        disparoJugSt = 0
+        disparoJugX = 0
+        disparoJugY = 0
+
+        disparoEn1St = 0
+        disparoEn1X = 0
+        disparoEn1Y = 0
+
+        disparoEn2St = 0
+        disparoEn2X = 0
+        disparoEn2Y = 0
+
+        disparoEn3St = 0
+        disparoEn3X = 0
+        disparoEn3Y = 0
+
+        disparoEn4St = 0
+        disparoEn4X = 0
+        disparoEn4Y = 0
+
+        velBalasJug = 100
+        velBalasEne = 200
+        velRotaEne = 1000
+
+        posEnemigos = [0, 7, 1, 7, 2, 7, 3, 7, 4, 7, 5, 7, 6, 7, 7, 7]
+        lose = [7, 0]
+
+        enem1St = 1
+        enem2St = 1
+        enem3St = 1
+        enem4St = 1
+        enem5St = 1
+        enem6St = 1
+        enem7St = 1
+        enem8St = 1
+
+        cantEnemigos = 8
+
+        disparosEnemigos = 0
+
+        timeCount = 0
+        hitEneFlag = 0
+        
+        start = 1
+
+
 def win():
     matrix.draw_point(0, 0)
     time.sleep(1000)
@@ -245,6 +298,7 @@ def display():
 
 def main():
     matrix = Matrix()
+    init()
     while vidas>0:
         movJugador()
         disparoJugador()
@@ -279,7 +333,7 @@ class Matrix(object):
       draw.point((x,y), fill="green")
 
 
-if _name=="main_":
+if __name__=="__main__":
   try:
     main()
   except KeyboardInterrupt:
