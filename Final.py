@@ -32,7 +32,7 @@ disparoEn4Y = 0
 
 velBalasJug = 10
 velBalasEne = 20
-velRotaEne = 1000
+velRotaEne = 100
 
 posEnemigos = [0, 7, 1, 7, 2, 7, 3, 7, 4, 7, 5, 7, 6, 7, 7, 7]
 lose = [7, 0]
@@ -96,6 +96,7 @@ def movJugador():
       if (disparoJugSt == 0):
         disparoJugador()
       print("s")
+    #print("f")
 
 def disparoJugador():
     global jugX, disparoJugSt, disparoJugX, disparoJugY
@@ -127,30 +128,34 @@ def disparoEnemigo():
 
 
 def balaJugador():
-    global timeCount, velBalasJug, disparoJugY
+    global timeCount, velBalasJug, disparoJugY, disparoJugSt
     if(timeCount % velBalasJug == 0):
-        disparoJugY = disparoJugY+1
+        if(disparoJugSt == 1):
+            if(disparoJugY == 7):
+                disparoJugSt = 0
+            else:
+                disparoJugY = disparoJugY+1
 
 def balaEnemigo():
     global timeCount, velBalasEne, disparoEn1St, disparoEn1Y, disparoEn2St, disparoEn2Y, disparoEn3St, disparoEn3Y, disparoEn4St, disparoEn4Y
     if(timeCount % velBalasEne == 0):
         if(disparoEn1St == 1):
-            if(disparoEn1Y == 7):
+            if(disparoEn1Y == 0):
                 disparoEn1St = 0
             else:
                 disparoEn1Y = disparoEn1Y-1
         if(disparoEn2St == 1):
-            if(disparoEn2Y == 7):
+            if(disparoEn2Y == 0):
                 disparoEn2St = 0
             else:
                 disparoEn2Y = disparoEn2Y-1
         if(disparoEn3St == 1):
-            if(disparoEn3Y == 7):
+            if(disparoEn3Y == 0):
                 disparoEn3St = 0
             else:
                 disparoEn3Y = disparoEn3Y-1
         if(disparoEn4St == 1):
-            if(disparoEn4Y == 7):
+            if(disparoEn4Y == 0):
                 disparoEn4St = 0
             else:
                 disparoEn4Y = disparoEn4Y-1
