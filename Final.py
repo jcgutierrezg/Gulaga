@@ -5,9 +5,56 @@ from luma.core.render import canvas
 import time
 import random
 
+vidas = 3
+
+jugX = 4
+jugY = 0
+disparoJugSt = 0
+disparoJugX = 0
+disparoJugY = 0
+
+disparoEn1St = 0
+disparoEn1X = 0
+disparoEn1Y = 0
+
+disparoEn2St = 0
+disparoEn2X = 0
+disparoEn2Y = 0
+
+disparoEn3St = 0
+disparoEn3X = 0
+disparoEn3Y = 0
+
+disparoEn4St = 0
+disparoEn4X = 0
+disparoEn4Y = 0
+
+velBalasJug = 10
+velBalasEne = 20
+velRotaEne = 1000
+
+posEnemigos = [0, 7, 1, 7, 2, 7, 3, 7, 4, 7, 5, 7, 6, 7, 7, 7]
+lose = [7, 0]
+
+enem1St = 1
+enem2St = 1
+enem3St = 1
+enem4St = 1
+enem5St = 1
+enem6St = 1
+enem7St = 1
+enem8St = 1
+
+cantEnemigos = 8
+
+disparosEnemigos = 0
+
+timeCount = 0
+hitEneFlag = 0
+start = 0
+
 
 def init():
-    global start
     if(start == 0):
         vidas = 3
 
@@ -252,7 +299,53 @@ def display():
 
 def main():
     matrix = Matrix()
-    start = 0
+    global vidas
+
+    global jugX
+    global jugY
+    global disparoJugSt
+    global disparoJugX
+    global disparoJugY
+
+    global disparoEn1St
+    global disparoEn1X
+    global disparoEn1Y
+
+    global disparoEn2St
+    global disparoEn2X
+    global disparoEn2Y
+
+    global disparoEn3St
+    global disparoEn3X
+    global disparoEn3Y
+
+    global disparoEn4St
+    global disparoEn4X
+    global disparoEn4Y
+
+    global velBalasJug
+    global velBalasEne
+    global velRotaEne
+
+    global posEnemigos
+    global lose
+
+    global enem1St
+    global enem2St
+    global enem3St
+    global enem4St
+    global enem5St
+    global enem6St
+    global enem7St
+    global enem8St
+
+    global cantEnemigos
+
+    global disparosEnemigos
+
+    global timeCount
+    global hitEneFlag
+    global start
     init()
     while vidas>0:
         movJugador()
