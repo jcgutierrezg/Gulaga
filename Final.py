@@ -70,7 +70,7 @@ def rotaEne():
     global timeCount, velRotaEne
     if(timeCount % velRotaEne == 0):
         #matrix.draw_point(4, 4)
-        time.sleep(1000)
+        time.sleep(1)
     
 
 def movJugador():
@@ -78,19 +78,19 @@ def movJugador():
     #dir = 0
     #dir =int(input("move\n"))
 
-    if (keyboard.is_pressed('a')):
+    if (keyboard.read_key() == "a"):
       if (jugX == 7):
         jugX = 0
       else:
         jugX = jugX+1
 
-    elif (keyboard.is_pressed('s')):
+    elif (keyboard.read_key() == "d"):
       if (jugX == 0):
         jugX = 7
       else:
         jugX = jugX-1
 
-    elif (keyboard.is_pressed('d')):
+    elif (keyboard.read_key() == "s"):
       if (disparoJugSt == 0):
         disparoJugador()
 
@@ -101,7 +101,7 @@ def disparoJugador():
     disparoJugY = 1
 
 def disparoEnemigo():
-    global disparoEn1St, disparoEn1X, disparoEn1Y, disparoEn2St, disparoEn2X, disparoEn2Y, disparoEn3St, disparoEn3X, disparoEn3Y, disparoEn4St, disparoEn4X, disparoEn4Y
+    global disparoEn1St, disparoEn1X, disparoEn1Y, disparoEn2St, disparoEn2X, disparoEn2Y, disparoEn3St, disparoEn3X, disparoEn3Y, disparoEn4St, disparoEn4X, disparoEn4Y, disparosEnemigos
     disparosEnemigos = disparoEn1St+disparoEn2St+disparoEn3St+disparoEn4St
     while(disparosEnemigos<4):
         if(disparoEn1St == 0):
