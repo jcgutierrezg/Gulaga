@@ -263,8 +263,6 @@ def main():
         detectHitEne()
         detectHitJug()
         rotaEne()
-        
-        matrix.draw_point(jugX, jugY)
 
         if(enem1St == 1):
             matrix.draw_point(posEnemigos[0], posEnemigos[1])
@@ -294,6 +292,8 @@ def main():
 
         if(disparoJugSt == 1):
             matrix.draw_point(disparoJugX, disparoJugY)
+
+        matrix.draw_point(jugX, jugY)
 
         timeCount = timeCount+1
         
