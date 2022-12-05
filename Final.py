@@ -34,6 +34,8 @@ velBalasJug = 10
 velBalasEne = 20
 velRotaEne = 100
 
+pattern = 0
+
 posEnemigos = [0, 7, 1, 7, 2, 7, 3, 7, 4, 7, 5, 7, 6, 7, 7, 7]
 lose = [7, 0]
 
@@ -52,6 +54,7 @@ disparosEnemigos = 0
 
 timeCount = 1
 hitEneFlag = 0
+hitJugFlag = 0
 
 win = 0
 gameOver = 0
@@ -67,10 +70,20 @@ def perderVida():
     jugX = 4
 
 def rotaEne():
-    global timeCount, velRotaEne
+    global timeCount, velRotaEne, posEnemigos, pattern
     if(timeCount % velRotaEne == 0):
-        #matrix.draw_point(4, 4)
-        time.sleep(1000)
+        if(pattern == 0):
+            posEnemigos = [0, 6, 1, 7, 2, 6, 3, 7, 4, 6, 5, 7, 6, 6, 7, 7]
+            pattern = pattern+1
+        elif(pattern == 1):
+            posEnemigos = [0, 7, 1, 7, 0, 6, 1, 6, 7, 7, 6, 7, 7, 6, 6, 6]
+            pattern = pattern+1
+        elif(pattern == 2):
+            posEnemigos = [2, 7, 3, 7, 4, 7, 5, 7, 2, 6, 3, 6, 4, 6, 5, 6]
+            pattern = pattern+1
+        elif(pattern == 3):
+            posEnemigos = [0, 7, 1, 7, 2, 6, 3, 6, 4, 6, 5, 6, 6, 7, 7, 7]
+            pattern = 0
     
 
 def movJugador():
@@ -204,23 +217,28 @@ def detectHitEne():
 
 
 def detectHitJug():
-    global jugX, disparoEn1St, disparoEn1Y, disparoEn2St, disparoEn2Y, disparoEn3St, disparoEn3Y, disparoEn4St, disparoEn4Y
-    if(disparoEn1St == 1 and disparoEn1Y == 0):
+    global jugX, disparoEn1St, disparoEn1Y, disparoEn2St, disparoEn2Y, disparoEn3St, disparoEn3Y, disparoEn4St, disparoEn4Y, hitJugFlag
+    if(disparoEn1St == 1 and disparoEn1Y == 0 and hitJugFlag == 0):
         if(disparoEn1X == jugX):
             disparoEn1St = 0
+            hitJugFlag = 1
             perderVida()
-    if(disparoEn2St == 1 and disparoEn2Y == 0):
+    if(disparoEn2St == 1 and disparoEn2Y == 0 and hitJugFlag == 0):
         if(disparoEn2X == jugX):
             disparoEn2St = 0
+            hitJugFlag = 1
             perderVida()
-    if(disparoEn3St == 1 and disparoEn3Y == 0):
+    if(disparoEn3St == 1 and disparoEn3Y == 0 and hitJugFlag == 0):
         if(disparoEn3X == jugX):
             disparoEn3St = 0
+            hitJugFlag = 1
             perderVida()
-    if(disparoEn4St == 1 and disparoEn4Y == 0):
+    if(disparoEn4St == 1 and disparoEn4Y == 0 and hitJugFlag == 0):
         if(disparoEn4X == jugX):
             disparoEn4St = 0
+            hitJugFlag = 1
             perderVida()
+    hitJugFlag = 0
 
 
 def main():
