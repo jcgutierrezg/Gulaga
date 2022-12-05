@@ -4,6 +4,7 @@ from luma.core.interface.serial import spi,noop
 from luma.core.render import canvas
 import time
 import random
+import keyboard
 
 vidas = 3
 
@@ -74,22 +75,22 @@ def rotaEne():
 
 def movJugador():
     global jugX, jugY, disparoJugSt
-    dir = 0
-    dir =int(input("move\n"))
+    #dir = 0
+    #dir =int(input("move\n"))
 
-    if (dir == 1):
+    if (keyboard.is_pressed('a')):
       if (jugX == 7):
         jugX = 0
       else:
         jugX = jugX+1
 
-    elif (dir == 3):
+    elif (keyboard.is_pressed('s')):
       if (jugX == 0):
         jugX = 7
       else:
         jugX = jugX-1
 
-    elif (dir == 2):
+    elif (keyboard.is_pressed('d')):
       if (disparoJugSt == 0):
         disparoJugador()
 
