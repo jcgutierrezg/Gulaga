@@ -5,55 +5,6 @@ from luma.core.render import canvas
 import time
 import random
 
-    global vidas
-
-    global jugX
-    global jugY
-    global disparoJugSt
-    global disparoJugX
-    global disparoJugY
-
-    global disparoEn1St
-    global disparoEn1X
-    global disparoEn1Y
-
-    global disparoEn2St
-    global disparoEn2X
-    global disparoEn2Y
-
-    global disparoEn3St
-    global disparoEn3X
-    global disparoEn3Y
-
-    global disparoEn4St
-    global disparoEn4X
-    global disparoEn4Y
-
-    global velBalasJug
-    global velBalasEne
-    global velRotaEne
-
-    global posEnemigos
-    global lose
-
-    global enem1St
-    global enem2St
-    global enem3St
-    global enem4St
-    global enem5St
-    global enem6St
-    global enem7St
-    global enem8St
-
-    global cantEnemigos
-
-    global disparosEnemigos
-
-    global timeCount
-    global hitEneFlag
-    global start
-
-
 vidas = 3
 
 jugX = 4
