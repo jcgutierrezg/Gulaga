@@ -52,16 +52,9 @@ disparosEnemigos = 0
 timeCount = 1
 hitEneFlag = 0
 
+win = 0
+gameOver = 0
 
-def win():
-    global matrix
-    matrix.draw_point(0, 0)
-    time.sleep(1000)
-
-def gameOver():
-    global matrix
-    matrix.draw_point(7, 7)
-    time.sleep(1000)
 
 def perderVida():
     global vidas, jugX
@@ -73,9 +66,9 @@ def perderVida():
     jugX = 4
 
 def rotaEne():
-    global timeCount, velRotaEne, matrix
+    global timeCount, velRotaEne
     if(timeCount % velRotaEne == 0):
-        matrix.draw_point(4, 4)
+        #matrix.draw_point(4, 4)
         time.sleep(1000)
     
 
@@ -101,7 +94,7 @@ def movJugador():
         disparoJugador()
 
 def disparoJugador():
-    global jugX
+    global jugX, disparoJugSt, disparoJugX, disparoJugY
     disparoJugSt = 1
     disparoJugX = jugX
     disparoJugY = 1
@@ -160,7 +153,7 @@ def balaEnemigo():
 
 
 def detectHitEne():
-    global disparoJugY, disparoJugX, posEnemigos, hitEneFlag, cantEnemigos
+    global disparoJugY, disparoJugX, posEnemigos, hitEneFlag, cantEnemigos, enem1St, enem2St, enem3St, enem4St, enem5St, enem6St, enem7St, enem8St, disparoJugSt
     if(disparoJugY == posEnemigos[1] and disparoJugX == posEnemigos[0] and hitEneFlag == 0):
         enem1St = 0
         hitEneFlag = 1
@@ -219,45 +212,8 @@ def detectHitJug():
             perderVida()
 
 
-
-def display():
-    global jugX, jugY, posEnemigos, disparoJugX, disparoJugY, disparoEn1X, disparoEn1Y, disparoEn2X, disparoEn2Y, disparoEn3X, disparoEn3Y, disparoEn4X, disparoEn4Y, matrix
-    matrix.draw_point(jugX, jugY)
-
-    if(enem1St == 1):
-        matrix.draw_point(posEnemigos[0], posEnemigos[1])
-    if(enem2St == 1):
-        matrix.draw_point(posEnemigos[2], posEnemigos[3])
-    if(enem3St == 1):
-        matrix.draw_point(posEnemigos[4], posEnemigos[5])
-    if(enem4St == 1):
-        matrix.draw_point(posEnemigos[6], posEnemigos[7])
-    if(enem5St == 1):
-        matrix.draw_point(posEnemigos[8], posEnemigos[9])
-    if(enem6St == 1):
-        matrix.draw_point(posEnemigos[10], posEnemigos[11])
-    if(enem7St == 1):
-        matrix.draw_point(posEnemigos[12], posEnemigos[13])
-    if(enem8St == 1):
-        matrix.draw_point(posEnemigos[14], posEnemigos[15])
-
-    if(disparoEn1St == 1):
-        matrix.draw_point(disparoEn1X, disparoEn1Y)
-    if(disparoEn2St == 1):
-        matrix.draw_point(disparoEn2X, disparoEn2Y)
-    if(disparoEn3St == 1):
-        matrix.draw_point(disparoEn3X, disparoEn3Y)
-    if(disparoEn4St == 1):
-        matrix.draw_point(disparoEn4X, disparoEn4Y)
-
-    if(disparoJugSt == 1):
-        matrix.draw_point(disparoJugX, disparoJugY)
-    
-
-
 def main():
-    global vidas, timeCount
-    global matrix
+    global vidas, timeCount, posEnemigos, enem1St, enem2St, enem3St, enem4St, enem5St, enem6St, enem7St, enem8St, disparoEn1St, disparoEn1X, disparoEn1Y, disparoEn2St, disparoEn2X, disparoEn2Y, disparoEn3St, disparoEn3X, disparoEn3Y, disparoEn4St, disparoEn4X, disparoEn4Y, disparoJugX, disparoJugY
     matrix = Matrix()
     while vidas>0:
         movJugador()
@@ -268,7 +224,38 @@ def main():
         detectHitEne()
         detectHitJug()
         rotaEne()
-        display()
+        
+        matrix.draw_point(jugX, jugY)
+
+        if(enem1St == 1):
+            matrix.draw_point(posEnemigos[0], posEnemigos[1])
+        if(enem2St == 1):
+            matrix.draw_point(posEnemigos[2], posEnemigos[3])
+        if(enem3St == 1):
+            matrix.draw_point(posEnemigos[4], posEnemigos[5])
+        if(enem4St == 1):
+            matrix.draw_point(posEnemigos[6], posEnemigos[7])
+        if(enem5St == 1):
+            matrix.draw_point(posEnemigos[8], posEnemigos[9])
+        if(enem6St == 1):
+            matrix.draw_point(posEnemigos[10], posEnemigos[11])
+        if(enem7St == 1):
+            matrix.draw_point(posEnemigos[12], posEnemigos[13])
+        if(enem8St == 1):
+            matrix.draw_point(posEnemigos[14], posEnemigos[15])
+
+        if(disparoEn1St == 1):
+            matrix.draw_point(disparoEn1X, disparoEn1Y)
+        if(disparoEn2St == 1):
+            matrix.draw_point(disparoEn2X, disparoEn2Y)
+        if(disparoEn3St == 1):
+            matrix.draw_point(disparoEn3X, disparoEn3Y)
+        if(disparoEn4St == 1):
+            matrix.draw_point(disparoEn4X, disparoEn4Y)
+
+        if(disparoJugSt == 1):
+            matrix.draw_point(disparoJugX, disparoJugY)
+
         timeCount = timeCount+1
         
 
