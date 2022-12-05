@@ -49,7 +49,7 @@ cantEnemigos = 8
 
 disparosEnemigos = 0
 
-timeCount = 0
+timeCount = 1
 hitEneFlag = 0
 
 
@@ -257,6 +257,7 @@ def display():
 
 def main():
     global vidas, timeCount
+    global matrix
     matrix = Matrix()
     while vidas>0:
         movJugador()
