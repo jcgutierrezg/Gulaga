@@ -4,7 +4,8 @@ from luma.core.interface.serial import spi,noop
 from luma.core.render import canvas
 import time
 import random
-import keyboard
+#import keyboard
+import getch
 
 vidas = 3
 
@@ -61,11 +62,11 @@ gameOver = 0
 
 
 def perderVida():
-    global vidas, jugX
+    global vidas, jugX, gameOver
     vidas = vidas-1
 
     if(vidas == 0):
-        gameOver()
+        gameOver = 1
     
     jugX = 4
 
@@ -90,22 +91,23 @@ def movJugador():
     global jugX, jugY, disparoJugSt
     #dir = 0
     #dir =int(input("move\n"))
+    dir = getch.getch()
 
-    if (keyboard.is_pressed("a")):
+    if (dir == 'a'):
       if (jugX == 7):
         jugX = 0
       else:
         jugX = jugX+1
         print("a")
 
-    elif (keyboard.is_pressed("d")):
+    elif (dir == 'd'):
       if (jugX == 0):
         jugX = 7
       else:
         jugX = jugX-1
       print("d")
 
-    elif (keyboard.is_pressed("s")):
+    elif (dir == 's'):
       if (disparoJugSt == 0):
         disparoJugador()
       print("s")
