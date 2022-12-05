@@ -182,44 +182,45 @@ def balaEnemigo():
 
 def detectHitEne():
     global disparoJugY, disparoJugX, posEnemigos, hitEneFlag, cantEnemigos, enem1St, enem2St, enem3St, enem4St, enem5St, enem6St, enem7St, enem8St, disparoJugSt, win
-    if(disparoJugY == posEnemigos[1] and disparoJugX == posEnemigos[0] and hitEneFlag == 0):
-        enem1St = 0
-        hitEneFlag = 1
-        disparoJugSt = 0
-    if(disparoJugY == posEnemigos[3] and disparoJugX == posEnemigos[2] and hitEneFlag == 0):
-        enem2St = 0
-        hitEneFlag = 1
-        disparoJugSt = 0
-    if(disparoJugY == posEnemigos[5] and disparoJugX == posEnemigos[4] and hitEneFlag == 0):
-        enem3St = 0
-        hitEneFlag = 1
-        disparoJugSt = 0
-    if(disparoJugY == posEnemigos[7] and disparoJugX == posEnemigos[6] and hitEneFlag == 0):
-        enem4St = 0
-        hitEneFlag = 1
-        disparoJugSt = 0
-    if(disparoJugY == posEnemigos[9] and disparoJugX == posEnemigos[8] and hitEneFlag == 0):
-        enem5St = 0
-        hitEneFlag = 1
-        disparoJugSt = 0
-    if(disparoJugY == posEnemigos[11] and disparoJugX == posEnemigos[10] and hitEneFlag == 0):
-        enem6St = 0
-        hitEneFlag = 1
-        disparoJugSt = 0
-    if(disparoJugY == posEnemigos[13] and disparoJugX == posEnemigos[12] and hitEneFlag == 0):
-        enem7St = 0
-        hitEneFlag = 1
-        disparoJugSt = 0
-    if(disparoJugY == posEnemigos[15] and disparoJugX == posEnemigos[14] and hitEneFlag == 0):
-        enem8St = 0
-        hitEneFlag = 1
-        disparoJugSt = 0
-    
-    if(hitEneFlag == 1):
-        cantEnemigos = cantEnemigos -1
-    hitEneFlag = 0
-    if(cantEnemigos == 0):
-        win = 1
+    if(disparoJugSt == 1):
+        if(disparoJugY == posEnemigos[1] and disparoJugX == posEnemigos[0] and hitEneFlag == 0):
+            enem1St = 0
+            hitEneFlag = 1
+            disparoJugSt = 0
+        if(disparoJugY == posEnemigos[3] and disparoJugX == posEnemigos[2] and hitEneFlag == 0):
+            enem2St = 0
+            hitEneFlag = 1
+            disparoJugSt = 0
+        if(disparoJugY == posEnemigos[5] and disparoJugX == posEnemigos[4] and hitEneFlag == 0):
+            enem3St = 0
+            hitEneFlag = 1
+            disparoJugSt = 0
+        if(disparoJugY == posEnemigos[7] and disparoJugX == posEnemigos[6] and hitEneFlag == 0):
+            enem4St = 0
+            hitEneFlag = 1
+            disparoJugSt = 0
+        if(disparoJugY == posEnemigos[9] and disparoJugX == posEnemigos[8] and hitEneFlag == 0):
+            enem5St = 0
+            hitEneFlag = 1
+            disparoJugSt = 0
+        if(disparoJugY == posEnemigos[11] and disparoJugX == posEnemigos[10] and hitEneFlag == 0):
+            enem6St = 0
+            hitEneFlag = 1
+            disparoJugSt = 0
+        if(disparoJugY == posEnemigos[13] and disparoJugX == posEnemigos[12] and hitEneFlag == 0):
+            enem7St = 0
+            hitEneFlag = 1
+            disparoJugSt = 0
+        if(disparoJugY == posEnemigos[15] and disparoJugX == posEnemigos[14] and hitEneFlag == 0):
+            enem8St = 0
+            hitEneFlag = 1
+            disparoJugSt = 0
+        
+        if(hitEneFlag == 1):
+            cantEnemigos = cantEnemigos -1
+        hitEneFlag = 0
+        if(cantEnemigos == 0):
+            win = 1
 
 
 def detectHitJug():
