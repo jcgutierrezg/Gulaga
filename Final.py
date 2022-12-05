@@ -54,10 +54,12 @@ hitEneFlag = 0
 
 
 def win():
+    global matrix
     matrix.draw_point(0, 0)
     time.sleep(1000)
 
 def gameOver():
+    global matrix
     matrix.draw_point(7, 7)
     time.sleep(1000)
 
@@ -71,7 +73,7 @@ def perderVida():
     jugX = 4
 
 def rotaEne():
-    global timeCount, velRotaEne
+    global timeCount, velRotaEne, matrix
     if(timeCount % velRotaEne == 0):
         matrix.draw_point(4, 4)
         time.sleep(1000)
@@ -219,7 +221,7 @@ def detectHitJug():
 
 
 def display():
-    global jugX, jugY, posEnemigos, disparoJugX, disparoJugY, disparoEn1X, disparoEn1Y, disparoEn2X, disparoEn2Y, disparoEn3X, disparoEn3Y, disparoEn4X, disparoEn4Y
+    global jugX, jugY, posEnemigos, disparoJugX, disparoJugY, disparoEn1X, disparoEn1Y, disparoEn2X, disparoEn2Y, disparoEn3X, disparoEn3Y, disparoEn4X, disparoEn4Y, matrix
     matrix.draw_point(jugX, jugY)
 
     if(enem1St == 1):
