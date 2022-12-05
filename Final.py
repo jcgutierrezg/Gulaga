@@ -246,10 +246,10 @@ def detectHitJug():
 def main():
     global vidas, timeCount, posEnemigos, enem1St, enem2St, enem3St, enem4St, enem5St, enem6St, enem7St, enem8St, disparoEn1St, disparoEn1X, disparoEn1Y, disparoEn2St, disparoEn2X, disparoEn2Y, disparoEn3St, disparoEn3X, disparoEn3Y, disparoEn4St, disparoEn4X, disparoEn4Y, disparoJugX, disparoJugY
     matrix = Matrix()
-    listener = keyboard.Listener(
-    on_press=on_press,
-    on_release=on_release)
-    listener.start()
+    #listener = keyboard.Listener(
+    #on_press=on_press,
+    #on_release=on_release)
+    #listener.start()
 
     while (gameOver==0 and win == 0):
         movJugador()
