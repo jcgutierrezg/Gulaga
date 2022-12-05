@@ -153,7 +153,7 @@ def balaEnemigo():
 
 
 def detectHitEne():
-    global disparoJugY, disparoJugX, posEnemigos, hitEneFlag, cantEnemigos, enem1St, enem2St, enem3St, enem4St, enem5St, enem6St, enem7St, enem8St, disparoJugSt
+    global disparoJugY, disparoJugX, posEnemigos, hitEneFlag, cantEnemigos, enem1St, enem2St, enem3St, enem4St, enem5St, enem6St, enem7St, enem8St, disparoJugSt, win
     if(disparoJugY == posEnemigos[1] and disparoJugX == posEnemigos[0] and hitEneFlag == 0):
         enem1St = 0
         hitEneFlag = 1
@@ -186,10 +186,12 @@ def detectHitEne():
         enem8St = 0
         hitEneFlag = 1
         disparoJugSt = 0
+    
+    if(hitEneFlag == 1):
+        cantEnemigos = cantEnemigos -1
     hitEneFlag = 0
-    cantEnemigos = cantEnemigos -1
     if(cantEnemigos == 0):
-        win()
+        win = 1
 
 
 def detectHitJug():
@@ -215,7 +217,7 @@ def detectHitJug():
 def main():
     global vidas, timeCount, posEnemigos, enem1St, enem2St, enem3St, enem4St, enem5St, enem6St, enem7St, enem8St, disparoEn1St, disparoEn1X, disparoEn1Y, disparoEn2St, disparoEn2X, disparoEn2Y, disparoEn3St, disparoEn3X, disparoEn3Y, disparoEn4St, disparoEn4X, disparoEn4Y, disparoJugX, disparoJugY
     matrix = Matrix()
-    while vidas>0:
+    while (gameOver==0 and win == 0):
         movJugador()
         disparoJugador()
         disparoEnemigo()
@@ -265,8 +267,8 @@ def main():
     #time.sleep(0.1)
 
 class Matrix(object):
-  def _init_(self):
-    super(Matrix, self)._init_()
+  def __init__(self):
+    super(Matrix, self).__init__()
     self.device = self.create_matrix_device(1, 0, 0)
   def create_matrix_device(self, n, block_orientation, rotate):
     # Create matrix device
