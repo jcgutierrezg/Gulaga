@@ -62,8 +62,12 @@ gameOver = 0
 
 
 def perderVida():
-    global vidas, jugX, gameOver
+    global vidas, jugX, gameOver, disparoEn1St, disparoEn2St, disparoEn3St, disparoEn4St
     vidas = vidas-1
+    disparoEn1St = 0
+    disparoEn2St = 0
+    disparoEn3St = 0
+    disparoEn4St = 0
 
     if(vidas == 0):
         gameOver = 1
