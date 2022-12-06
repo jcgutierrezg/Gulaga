@@ -6,7 +6,25 @@ import time
 import random
 #import getch
 #from pynput import keyboard
-import pygame
+#import pygame
+import threading
+
+class KeyboardThread(threading.Thread):
+
+    def __init__(self, input_cbk = None, name='keyboard-input-thread'):
+        self.input_cbk = input_cbk
+        super(KeyboardThread, self).__init__(name=name)
+        self.start()
+
+    def run(self):
+        while True:
+            self.input_cbk(input()) #waits to get input + Return
+
+
+
+# def my_callback(inp):
+#     #evaluate the keyboard input
+#     print('You Entered:', inp, ' Counter is at:')
 
 vidas = 3
 
@@ -92,51 +110,51 @@ def rotaEne():
             pattern = 0
     
 
-def movJugador():
+def movJugador(dir):
     global jugX, jugY, disparoJugSt
     #dir = 0
     #dir =int(input("move\n"))
     #dir = getch.getch()
-    events = pygame.event.get()
+    #events = pygame.event.get()
 
-    for event in events:
-        if event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_a:
-                if (jugX == 7):
-                    jugX = 0
-                else:
-                    jugX = jugX+1
-                    print("a")
-            if event.key == pygame.K_d:
-                if (jugX == 0):
-                    jugX = 7
-                else:
-                    jugX = jugX-1
-                    print("d")
-            if event.key == pygame.K_s:
-                if (disparoJugSt == 0):
-                    disparoJugador()
-                    print("s")
+    # for event in events:
+    #     if event.type == pygame.KEYDOWN:
+    #         if event.key == pygame.K_a:
+    #             if (jugX == 7):
+    #                 jugX = 0
+    #             else:
+    #                 jugX = jugX+1
+    #                 print("a")
+    #         if event.key == pygame.K_d:
+    #             if (jugX == 0):
+    #                 jugX = 7
+    #             else:
+    #                 jugX = jugX-1
+    #                 print("d")
+    #         if event.key == pygame.K_s:
+    #             if (disparoJugSt == 0):
+    #                 disparoJugador()
+    #                 print("s")
 
 
-    # if (dir == 'a'):
-    #   if (jugX == 7):
-    #     jugX = 0
-    #   else:
-    #     jugX = jugX+1
-    #     print("a")
+    if (dir == 'a'):
+      if (jugX == 7):
+        jugX = 0
+      else:
+        jugX = jugX+1
+        print("a")
 
-    # elif (dir == 'd'):
-    #   if (jugX == 0):
-    #     jugX = 7
-    #   else:
-    #     jugX = jugX-1
-    #   print("d")
+    elif (dir == 'd'):
+      if (jugX == 0):
+        jugX = 7
+      else:
+        jugX = jugX-1
+      print("d")
 
-    # elif (dir == 's'):
-    #   if (disparoJugSt == 0):
-    #     disparoJugador()
-    #   print("s")
+    elif (dir == 's'):
+      if (disparoJugSt == 0):
+        disparoJugador()
+      print("s")
     #print("f")
 
 def disparoJugador():
@@ -277,6 +295,7 @@ def main():
     #on_press=on_press,
     #on_release=on_release)
     #listener.start()
+    kthread = KeyboardThread(movJugador)
 
     while (gameOver==0 and win == 0):
         movJugador()
