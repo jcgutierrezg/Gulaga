@@ -298,7 +298,7 @@ def main():
     kthread = KeyboardThread(movJugador)
 
     while (gameOver==0 and win == 0):
-        movJugador()
+        #movJugador()
         disparoEnemigo()
         balaJugador()
         balaEnemigo()
@@ -339,6 +339,10 @@ def main():
 
         timeCount = timeCount+1
         #print(cantEnemigos)
+    if(win == 1):
+        print("Winner winner chicken dinner!")
+    elif(gameOver == 1):
+        print("Los caminos de la vida no son lo que yo esperaba")
         
 
     #matrix.draw_point(1,0)
