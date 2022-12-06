@@ -4,8 +4,9 @@ from luma.core.interface.serial import spi,noop
 from luma.core.render import canvas
 import time
 import random
-import getch
+#import getch
 #from pynput import keyboard
+import pygame
 
 vidas = 3
 
@@ -95,26 +96,47 @@ def movJugador():
     global jugX, jugY, disparoJugSt
     #dir = 0
     #dir =int(input("move\n"))
-    dir = getch.getch()
+    #dir = getch.getch()
+    events = pygame.event.get()
 
-    if (dir == 'a'):
-      if (jugX == 7):
-        jugX = 0
-      else:
-        jugX = jugX+1
-        print("a")
+    for event in events:
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_a:
+                if (jugX == 7):
+                    jugX = 0
+                else:
+                    jugX = jugX+1
+                    print("a")
+            if event.key == pygame.K_d:
+                if (jugX == 0):
+                    jugX = 7
+                else:
+                    jugX = jugX-1
+                    print("d")
+            if event.key == pygame.K_s:
+                if (disparoJugSt == 0):
+                    disparoJugador()
+                    print("s")
 
-    elif (dir == 'd'):
-      if (jugX == 0):
-        jugX = 7
-      else:
-        jugX = jugX-1
-      print("d")
 
-    elif (dir == 's'):
-      if (disparoJugSt == 0):
-        disparoJugador()
-      print("s")
+    # if (dir == 'a'):
+    #   if (jugX == 7):
+    #     jugX = 0
+    #   else:
+    #     jugX = jugX+1
+    #     print("a")
+
+    # elif (dir == 'd'):
+    #   if (jugX == 0):
+    #     jugX = 7
+    #   else:
+    #     jugX = jugX-1
+    #   print("d")
+
+    # elif (dir == 's'):
+    #   if (disparoJugSt == 0):
+    #     disparoJugador()
+    #   print("s")
     #print("f")
 
 def disparoJugador():
@@ -297,7 +319,7 @@ def main():
         matrix.draw_point(jugX, jugY)
 
         timeCount = timeCount+1
-        print(cantEnemigos)
+        #print(cantEnemigos)
         
 
     #matrix.draw_point(1,0)
